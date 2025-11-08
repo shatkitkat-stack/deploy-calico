@@ -5,8 +5,8 @@ namespace: tigera-operator
 
 resources:
   - base-manifests/tigera-operator.yaml
-  - base-manifests/custom-resources.yaml
-
+#  - base-manifests/custom-resources.yaml
+  - base-manifests/apiserver.yaml
 # убираем deprecated ключ
 patches:
   - path: calico-crs-patch.yaml
