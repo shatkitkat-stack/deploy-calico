@@ -4,8 +4,12 @@ kind: Kustomization
 namespace: tigera-operator
 
 resources:
-  - ../../base/tigera-operator.yaml
-  - ../../base/custom-resources.yaml
+  - base-manifests/tigera-operator.yaml
+  - base-manifests/custom-resources.yaml
 
-patchesStrategicMerge:
-  - calico-crs-patch.yaml
+# убираем deprecated ключ
+patches:
+  - path: calico-crs-patch.yaml
+    target:
+      kind: Installation
+      name: default
