@@ -13,3 +13,9 @@ patches:
     target:
       kind: Installation
       name: default
+
+patches:
+  - target: {kind: Namespace}
+    patch: "[{\"op\":\"remove\",\"path\":\"/metadata/namespace\"}]"
+  - target: {kind: APIService}
+    patch: "[{\"op\":\"remove\",\"path\":\"/metadata/namespace\"}]"
