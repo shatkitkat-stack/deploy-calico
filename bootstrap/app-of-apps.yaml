@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: calico-app-of-apps
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: calico
+  source:
+    repoURL: https://github.com/shatkitkat-stack/deploy-calico.git
+    targetRevision: main
+    path: overlays/default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tigera-operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
