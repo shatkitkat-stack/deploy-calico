@@ -1,0 +1,24 @@
+namePrefix: ~
+nameSuffix: ~
+commonLabels: ~
+commonAnnotations: ~
+namespace:
+  - path: metadata/namespace
+    create: true
+    kind: Deployment
+  - path: metadata/namespace
+    create: true
+    kind: DaemonSet
+  - path: metadata/namespace
+    create: true
+    kind: Service
+  - path: metadata/namespace
+    create: true
+    kind: ServiceAccount
+  - path: metadata/namespace
+    create: true
+    kind: ConfigMap
+  - path: metadata/namespace
+    create: true
+    kind: Secret
+  # и т.д. – НО нет записей для Namespace и APIService
